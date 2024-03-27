@@ -1,0 +1,16 @@
+*{
+    /* padding: 10px; */
+    margin: 10px;
+    text-align: center;
+    background-color: black;
+    color: aliceblue;
+}
+label{
+    position: absolute;
+    left: 18%;
+    /* padding: 20px; */
+    /* margin: 20px; */
+}
+input{
+    padding: 1px 300px;
+}
