@@ -1,0 +1,12 @@
+@media (max-width: 500px) {
+    .part1{
+        flex-direction: column;
+    }
+    .img img{
+        width: 100%;
+        height: 150px;
+    }
+    .part2{
+        flex-direction: column;
+    }
+ }
