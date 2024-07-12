@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result calculator</title>
+    <style>
+        *{
+            background-color: black;
+            font-family: "gilroy";
+        }
+        h2{
+            font-size: 35px;
+            text-align: center;
+            background-color: aquamarine;
+            
+        }
+        .main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 20px;
+            color: aliceblue;
+        }
+        input{
+            color: antiquewhite;
+        }
+        .head{
+            text-align: center;
+            font-size: 20px;
+            color: aliceblue;
+            font-weight: 100;
+        }
+        button{
+            background-color: #fff;
+            font-weight: 600;
+            padding: 10px;
+            margin: 15px;
+        }
+        .last{
+            display: flex;
+            gap: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Marksheet for information technology</h2>
+
+    <div class="head">
+    <p><b>Enter marks</b></p>
+</div>
+    <div class="main">
+    <p>1. C Language &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num1" required></p>
+    <p>2. C++ Language &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num2" required></p>
+    <p>3. Database &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num3" required></p>
+    <p>4. HTML &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num4" required></p>
+    <p>5. CSS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num5" required></p>
+    <p>6. PHP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num6" required></p>
+    <p>7. Core java &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="num7" type="number" required></p>
+    <div class="last">    
+    <button id="output">Result</button>
+    <h4 id="result">Total: </h4>
+    <h3 id="percent">Percentage: </h3>
+</div>
+</div>
+    <script>
+        var num1 = document.querySelector("#num1");
+        var num2 = document.querySelector("#num2");
+        var num3 = document.querySelector("#num3");
+        var num4 = document.querySelector("#num4");
+        var num5 = document.querySelector("#num5");
+        var num6 = document.querySelector("#num6");
+        var num7 = document.querySelector("#num7");
+        var result = document.querySelector("#result");
+        var percent = document.querySelector("#percent");
+        var btn = document.querySelector("button");
+
+        btn.addEventListener("click",function(){
+            result = Number(num1.value)+Number(num2.value)+Number(num3.value)+Number(num4.value)+Number(num5.value)+Number(num6.value)+Number(num7.value)
+        document.querySelector("#result").innerText = `Total: ${result}/700`;
+            
+        percent = (result / (7 * 100)) * 100;
+        document.querySelector("#percent").innerText = `Percentage: ${percent.toFixed(2)}%`;
+        })
+
+    </script>
+</body>
+</html>
