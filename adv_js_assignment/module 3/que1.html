@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Toggle Example</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #f7f7f7, #e2e2e2);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.password-field {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 12px 16px;
+    padding-right: 50px;
+    border: 1px solid #d1d5db;  
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="password"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+button.toggle-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 20px;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+button.toggle-btn:hover {
+    color: #007bff;
+}
+
+.eye-icon {
+    transition: transform 0.3s ease;
+}
+
+button.toggle-btn:focus .eye-icon {
+    transform: scale(1.1);
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="password-field">
+            <input type="password" id="password" placeholder="Enter your password">
+            <button id="togglePassword" class="toggle-btn">
+                <span id="eye-icon" class="eye-icon">🙈</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const passwordInput = document.getElementById('password');
+    const toggleButton = document.getElementById('togglePassword');
+    const eyeIcon = document.getElementById('eye-icon');
+
+    toggleButton.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.textContent = '🙉'; 
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.textContent = '🙈';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

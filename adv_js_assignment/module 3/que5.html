@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-buttons {
+            text-align: right;
+        }
+        .modal-buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-close {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-ok {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-cancel {
+            background-color: #ff9800;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Modal Example</h2>
+    <button id="openModal">Open Modal</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Modal Header</h2>
+            <p>This is a simple modal box with three buttons.</p>
+            <div class="modal-buttons">
+                <button class="btn-close" id="closeBtn">Close</button>
+                <button class="btn-ok" id="okBtn">OK</button>
+                <button class="btn-cancel" id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById('myModal');
+        var openModalBtn = document.getElementById('openModal');
+        var closeBtn = document.querySelector('.close');
+        var closeBtn2 = document.querySelector('#closeBtn');
+        var okBtn = document.getElementById('okBtn');
+        var cancelBtn = document.getElementById('cancelBtn');
+
+        openModalBtn.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+        closeBtn2.onclick = function() {
+            alert('Close button clicked')
+            modal.style.display = 'none';
+        }
+
+        okBtn.onclick = function() {
+            alert('OK button clicked');
+            modal.style.display = 'none';
+        }
+
+        cancelBtn.onclick = function() {
+            alert('Cancel button clicked');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>

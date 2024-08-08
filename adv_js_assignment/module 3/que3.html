@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            height: 10vh;
+            width: 100%;
+            color: azure;
+            background-color: rgb(248, 151, 115);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        h1 {
+            font-family: "gilroy";
+            font-size: 35px;
+            padding-left: 45px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            font-size: 22px;
+            color: beige;
+            font-family: "gilroy";
+            font-weight: 500;
+            padding-right: 25px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: beige;
+        }
+
+        .icon {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 10vh;
+                right: 0;
+                background-color: rgb(248, 151, 115);
+                width: 100%;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .icon {
+                display: block;
+                padding-right: 20px;
+                cursor: pointer;
+            }
+
+            .icon i {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>LOGO</h1>
+        </div>
+        <div class="icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Contact us</a>
+            <a href="#">About Us</a>
+            <a href="#">Services</a>
+        </div>
+    </nav>
+    <script>
+        document.querySelector('.icon').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

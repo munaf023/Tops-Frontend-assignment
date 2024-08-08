@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .product img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .product-details {
+            max-width: 500px;
+        }
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .product-price {
+            color: green;
+            font-size: 16px;
+        }
+        .product-description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Product List</h2>
+    <div id="product-list"></div>
+
+    <script>
+        // Fetch product data from API
+        fetch('https://fakestoreapi.com/products')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const productList = document.getElementById('product-list');
+                data.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+                    productDiv.innerHTML = `
+                        <img src="${product.image}" alt="${product.title}">
+                        <div class="product-details">
+                            <div class="product-title">${product.title}</div>
+                            <div class="product-price">$${product.price}</div>
+                            <div class="product-description">${product.description}</div>
+                        </div>
+                    `;
+                    productList.appendChild(productDiv);
+                });
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                document.getElementById('product-list').innerHTML = '<p>Failed to load products.</p>';
+            });
+    </script>
+
+</body>
+</html>

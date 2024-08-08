@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Example</title>
+</head>
+<body>
+    <h2>Promise Example</h2>
+    <button id="start">Start Operation</button>
+    <p id="result"></p>
+
+    <script>
+        function asyncOperation(success) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (success) {
+                        resolve("Operation completed successfully!");
+                    } else {
+                        reject("Operation failed.");
+                    }
+                }, 2000);
+            });
+        }
+
+        document.getElementById('start').addEventListener('click', () => {
+            asyncOperation(true)
+                .then(result => {
+                    document.getElementById('result').textContent = result;
+                })
+                .catch(error => {
+                    document.getElementById('result').textContent = error;
+                });
+        });
+    </script>
+</body>
+</html>

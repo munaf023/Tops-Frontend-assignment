@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .product img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Product List</h2>
+    <div id="product-list"></div>
+
+    <script>
+        // Fetch product data from API
+        fetch('https://fakestoreapi.com/products')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const productList = document.getElementById('product-list');
+                data.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+                    productDiv.innerHTML = `
+                        <h3>${product.title}</h3>
+                        <img src="${product.image}" alt="${product.title}">
+                        <p>Price: $${product.price}</p>
+                        <p>${product.description}</p>
+                    `;
+                    productList.appendChild(productDiv);
+                });
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                document.getElementById('product-list').innerHTML = '<p>Failed to load products.</p>';
+            });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert on Button Click</title>
+    <style>
+        .alert-item {
+            margin: 10px;
+            padding: 10px;
+            background-color: lightblue;
+            border: 1px solid blue;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h4>
+        Create a program that will select all the classes and loop over and whenever i click the
+        button the alert should show
+    </h4>
+
+
+    <div class="alert-item">Item 1</div>
+    <div class="alert-item">Item 2</div>
+    <div class="alert-item">Item 3</div>
+
+    <button id="alert-button">Show Alert</button>
+
+    <script>
+        document.getElementById('alert-button').addEventListener('click', function() {
+            const items = document.querySelectorAll('.alert-item');
+            items.forEach(item => {
+                alert(item.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
