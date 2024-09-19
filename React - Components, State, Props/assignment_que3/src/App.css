@@ -1,0 +1,23 @@
+.reactapp{
+  text-align: center;
+}
+.nav{
+  background-color: lightskyblue;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.main{
+  text-align: center;
+  padding: 10rem;
+  background-color: antiquewhite;
+  border-radius: 2rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.footer{
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: lightskyblue;
+}
